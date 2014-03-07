@@ -17,11 +17,10 @@ public class Main {
         InputStreamReader inputData = new InputStreamReader(System.in);
         BufferedReader bufferedReader = new BufferedReader(inputData);
 
-
         String playerOneCommand = playerOne.takeUserInput(bufferedReader);
         playerOne.makeMove(board, playerOneCommand);
 
-        String playerTwoCommand = playerOne.takeUserInput(bufferedReader);
+        String playerTwoCommand = playerTwo.takeUserInput(bufferedReader);
         playerTwo.makeMove(board, playerTwoCommand);
 
         board.printBoard();
