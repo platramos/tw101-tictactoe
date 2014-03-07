@@ -1,5 +1,6 @@
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -9,7 +10,8 @@ import java.util.List;
 public class Board {
 
     private final PrintStream out;
-    private String[][] board = new String[3][3];
+    public String[][] board = new String[3][3];
+    private List<String> occupiedSpaces = new ArrayList<String>();
 
     public Board(PrintStream out) {
 
@@ -35,15 +37,28 @@ public class Board {
             out.println();
         }
     }
-    public void fillBoard(int playerNumber, String userCommand){
 
-        if (playerNumber == 1) {
-            if (userCommand.equals("1")) {
-                board[0][0] += "X";
-            }
+    public void fillBoard(String userCommand, String mark) {
+
+
+        occupiedSpaces.add(userCommand);
+
+        if (userCommand.equals("1")) {
+            board[0][0] += mark;
         }
-        if (playerNumber == 2){
-            board[0][1] += "O";
+        if (userCommand.equals("2")) {
+            board[0][1] += mark;
+        }
+    }
+
+    public boolean isSpaceOccupied(String userCommand) {
+
+        if (occupiedSpaces.contains(userCommand)) {
+
+            return true;
+
+        } else {
+            return false;
         }
     }
 }

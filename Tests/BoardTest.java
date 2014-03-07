@@ -35,20 +35,4 @@ public class BoardTest {
         verify(stream, times(3)).println();
 
     }
-
-
-    @Test
-    public void shouldAlertThatSpaceIsOccupiedLocation() throws IOException{
-        BufferedReader playerOneInput = mock(BufferedReader.class);
-        when(playerOneInput.readLine()).thenReturn("1").thenReturn(null);
-
-        playerOne.makeMove(board, stream.toString());
-
-        BufferedReader playerTwoInput = mock(BufferedReader.class);
-        when(playerTwoInput.readLine()).thenReturn("1").thenReturn(null);
-
-        playerTwo.makeMove(board, stream.toString());
-
-        verify(stream).println("This Space is Occupied! Select Another");
-    }
 }

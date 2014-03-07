@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
@@ -11,19 +12,34 @@ public class Main {
 
     public static void main(String[] args) {
         Board board = new Board(System.out);
-        HumanPlayer playerOne = new HumanPlayer(1);
-        HumanPlayer playerTwo = new HumanPlayer(2);
+        HumanPlayer playerOne = new HumanPlayer(1, "X");
+        HumanPlayer playerTwo = new HumanPlayer(2, "O");
 
         InputStreamReader inputData = new InputStreamReader(System.in);
         BufferedReader bufferedReader = new BufferedReader(inputData);
 
-        String playerOneCommand = playerOne.takeUserInput(bufferedReader);
+        String playerOneCommand = takeUserInput(bufferedReader, board, playerOne);
         playerOne.makeMove(board, playerOneCommand);
 
-        String playerTwoCommand = playerTwo.takeUserInput(bufferedReader);
+        String playerTwoCommand = takeUserInput(bufferedReader, board, playerTwo);
         playerTwo.makeMove(board, playerTwoCommand);
 
         board.printBoard();
+    }
+
+    public static String takeUserInput(BufferedReader bufferedReader, Board board, HumanPlayer player){
+        System.out.println("Make a move Player " + player.playerNumber() + "!");
+
+        String userInput = "";
+
+        try{
+            userInput = bufferedReader.readLine();
+            return userInput;
+
+        } catch (IOException exception){
+            System.out.println("You made an invalid selection");
+            return userInput;
+        }
     }
 
 }
