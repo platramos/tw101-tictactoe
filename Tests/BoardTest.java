@@ -18,15 +18,11 @@ public class BoardTest {
 
     private Board board;
     private PrintStream stream;
-    private HumanPlayer playerOne;
-    private HumanPlayer playerTwo;
 
     @Before
     public void setUp(){
         stream = mock(PrintStream.class);
         board = new Board(stream);
-        playerOne = mock(HumanPlayer.class);
-        playerTwo = mock(HumanPlayer.class);
     }
 
     @Test

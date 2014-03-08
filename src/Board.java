@@ -19,7 +19,6 @@ public class Board {
         for (int row = 0; row < board.length; row++) {
             for (int column = 0; column < board.length; column++) {
                board[row][column] = "";
-
             }
         }
     }
@@ -39,7 +38,6 @@ public class Board {
     }
 
     public void fillBoard(String userCommand, String mark) {
-
 
         occupiedSpaces.add(userCommand);
 

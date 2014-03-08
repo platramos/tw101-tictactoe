@@ -9,8 +9,6 @@ import java.util.List;
 
 public class HumanPlayer {
 
-
-
     private int playerNumber;
     private String mark;
 
@@ -21,9 +19,10 @@ public class HumanPlayer {
 
     public void makeMove(Board board, String userCommand) {
 
-        board.fillBoard(userCommand, mark);
+            board.fillBoard(userCommand, mark);
 
     }
+
     public int playerNumber() {
         return playerNumber;
     }

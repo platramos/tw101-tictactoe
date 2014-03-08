@@ -33,11 +33,16 @@ public class Main {
         String userInput = "";
 
         try{
+            if (board.isSpaceOccupied(userInput)) {
+                System.out.println("Location already taken, please choose another");
+                bufferedReader.reset();
+            }
             userInput = bufferedReader.readLine();
+
             return userInput;
 
+
         } catch (IOException exception){
-            System.out.println("You made an invalid selection");
             return userInput;
         }
     }
